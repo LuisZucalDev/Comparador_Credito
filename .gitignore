@@ -1,0 +1,13 @@
+# .gitignore
+# Node.js dependencies
+node_modules/
+.env
+logs
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+tmp/
+

@@ -1,0 +1,383 @@
+/* Estilos General para todo el cuerpo de la página (body) */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente más moderna */
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5; /* Fondo más suave */
+    color: #333;
+    line-height: 1.6; /* Mejora la legibilidad del texto */
+}
+
+/* Contenedor principal para centrar el contenido */
+body > div {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Estilos para el encabezado (header) */
+header {
+    background-color: #0056b3; /* Azul más oscuro para el header */
+    color: white;
+    padding: 1.5em 0; /* Más padding */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+    border-bottom-left-radius: 15px; /* Bordes redondeados */
+    border-bottom-right-radius: 15px;
+}
+
+/* Estilos para el título dentro del encabezado */
+header h1 {
+    margin: 0;
+    font-size: 2.5em; /* Tamaño de fuente más grande */
+    font-weight: 700; /* Negrita */
+    letter-spacing: 1px; /* Espaciado entre letras */
+}
+
+/* Estilos para el menú de navegación */
+nav {
+    margin-top: 1.5em; /* Más margen superior */
+}
+
+/* Estilos para los Botones */
+nav button {
+    background-color: #007bff; /* Azul primario para botones */
+    color: white;
+    border: none;
+    padding: 1em 1.8em; /* Más padding */
+    margin: 0 0.8em; /* Más margen entre botones */
+    border-radius: 30px; /* Botones más redondeados */
+    cursor: pointer;
+    font-size: 1.1em; /* Fuente más grande */
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transición para hover */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra para botones */
+}
+
+/* Estilos para los Botones al pasar el mouse */
+nav button:hover {
+    background-color: #004085; /* Azul más oscuro al pasar el mouse */
+    transform: translateY(-2px); /* Efecto de elevación */
+}
+
+/* Estilos para la sección Principal del Contenedor*/
+main {
+    padding: 30px; /* Más padding */
+    max-width: 1200px;
+    margin: 30px auto; /* Más margen */
+    background-color: white;
+    border-radius: 12px; /* Bordes más redondeados */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Sombra más suave y extendida */
+    flex-grow: 1; /* Permite que el main ocupe el espacio disponible */
+}
+
+/* Estilos para cada Sección individual (Comparador, Faq, Glosario)*/
+section {
+    margin-bottom: 30px; /* Más margen inferior */
+}
+
+/* Estilos para los Subtitulos dentro de las secciones*/
+h2 {
+    color: #0056b3; /* Azul más oscuro para subtítulos */
+    text-align: center;
+    margin-bottom: 1.5em; /* Más margen inferior */
+    font-size: 2em; /* Tamaño de fuente más grande */
+    border-bottom: 2px solid #007bff; /* Línea inferior */
+    padding-bottom: 0.5em;
+    font-weight: 600;
+}
+
+/* Estilos para los filtros */
+.filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Más espacio entre elementos */
+    margin-bottom: 30px;
+    padding: 25px; /* Más padding */
+    background-color: #eaf6ff; /* Fondo más claro para los filtros */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.08); /* Sombra interna */
+    align-items: flex-end; /* Alinea los elementos al final */
+}
+
+.filtros > div {
+    flex: 1;
+    min-width: 220px; /* Ajuste para que se vea mejor en pantallas medianas */
+}
+
+.filtros label {
+    font-weight: 600; /* Más negrita */
+    color: #004085; /* Azul oscuro para etiquetas */
+    margin-bottom: 8px; /* Más margen inferior */
+    display: block;
+    font-size: 0.95em;
+}
+
+.filtros select,
+.filtros input[type="number"] {
+    padding: 12px 15px; /* Más padding */
+    border: 1px solid #a8d8ff; /* Borde azul claro */
+    border-radius: 8px; /* Bordes redondeados */
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filtros select:focus,
+.filtros input[type="number"]:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Sombra de enfoque */
+}
+
+/* Contenedor para los botones de filtro, para que se apilen correctamente */
+.filtros .button-group {
+    display: flex;
+    flex-direction: row; /* Por defecto en fila */
+    gap: 15px; /* Espacio entre los botones */
+    flex-grow: 1;
+    flex-basis: auto; /* Permite que este grupo se adapte */
+}
+
+.filtros button {
+    padding: 12px 20px; /* Más padding */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    flex-grow: 1; /* Permite que los botones crezcan */
+    font-size: 1em;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.filtros button:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+}
+
+#btnLimpiar {
+    background-color: #6c757d;
+}
+
+#btnLimpiar:hover {
+    background-color: #5a6268;
+}
+
+/* Estilos de tablas para el Comparador */
+.table-container {
+    overflow-x: auto; /* Permite desplazamiento horizontal en pantallas pequeñas */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra para la tabla */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1em;
+    min-width: 700px; /* Asegura un ancho mínimo para la tabla en pantallas grandes */
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0; /* Bordes más suaves */
+    padding: 15px; /* Más padding */
+    text-align: left;
+}
+
+table th {
+    background-color: #007bff;
+    color: white;
+    font-weight: 600; /* Negrita */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    font-size: 0.9em;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f8f8f8; /* Fondo más claro para filas pares */
+}
+
+table tbody tr:hover {
+    background-color: #eef7ff; /* Fondo azul claro al pasar el mouse */
+}
+
+/* Estilos para las Preguntas Frecuentes (faq)*/
+#faq ul {
+    list-style: none;
+    padding: 0;
+}
+
+#faq li {
+    background-color: #ffffff; /* Fondo blanco */
+    border: 1px solid #e0e0e0;
+    margin-bottom: 15px; /* Más margen inferior */
+    padding: 20px; /* Más padding */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08); /* Sombra suave */
+    transition: transform 0.2s ease;
+}
+
+#faq li:hover {
+    transform: translateY(-3px); /* Efecto de elevación al pasar el mouse */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+#faq li strong {
+    color: #0056b3;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.2em; /* Fuente más grande */
+    font-weight: 600;
+}
+
+#faq li p {
+    color: #555;
+    font-size: 0.95em;
+}
+
+/* Estilos para el glosario */
+#glosario dl {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+#glosario dt {
+    font-size: 1.2em;
+    color: #0056b3;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: 700; /* Más negrita */
+    position: relative; /* Para el posible ícono */
+    padding-left: 25px; /* Espacio para el ícono */
+}
+
+/* Puedes añadir un pseudo-elemento para un ícono si lo deseas */
+#glosario dt::before {
+    content: '📚'; /* Ejemplo de emoji como ícono */
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.1em;
+    line-height: 1;
+}
+
+
+#glosario dd {
+    margin-left: 25px; /* Alineado con el contenido de dt */
+    margin-bottom: 15px;
+    color: #555;
+    font-size: 0.95em;
+}
+
+footer {
+    text-align: center;
+    padding: 1.2em 0; /* Más padding */
+    margin-top: auto; /* Empuja el footer hacia abajo */
+    background-color: #2c3e50; /* Azul oscuro/gris para el footer */
+    color: white;
+    font-size: 0.9em;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilos para mensajes de carga/error */
+.text-center-message {
+    text-align: center;
+    padding: 15px;
+    color: #555;
+    font-style: italic;
+    background-color: #fdfdfd;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.error-message {
+    color: #dc3545; /* Un rojo más vibrante para errores */
+    font-weight: bold;
+    background-color: #ffebeb; /* Fondo claro para errores */
+    border: 1px solid #dc3545;
+}
+
+/* Pantalla Responsivo */
+
+/* Cuando la pantalla tiene un ancho máximo de 768px (tables y Moviles grandes)*/
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+    nav button {
+        padding: 0.8em 1.2em;
+        margin: 0 0.5em;
+        font-size: 1em;
+    }
+    main {
+        padding: 20px;
+        margin: 20px auto;
+    }
+    table th, table td {
+        padding: 10px;
+        font-size: 0.85em;
+    }
+    .filtros {
+        flex-direction: column; /* Apila los elementos en columnas */
+        align-items: stretch; /* Estira los elementos para ocupar el ancho completo */
+        padding: 20px;
+    }
+    .filtros > div {
+        min-width: unset; /* Elimina el ancho mínimo en móviles */
+        width: 100%;
+    }
+    /* Asegura que los botones dentro del grupo también se apilen en columnas */
+    .filtros .button-group {
+        flex-direction: column;
+        gap: 10px; /* Espacio entre los botones apilados */
+    }
+    .filtros button {
+        width: 100%; /* Botones ocupan todo el ancho */
+    }
+    #faq li, #glosario dl {
+        padding: 15px;
+    }
+    #faq li strong, #glosario dt {
+        font-size: 1.1em;
+    }
+    #faq li p, #glosario dd {
+        font-size: 0.9em;
+    }
+}
+
+/* En pantallas pequeñas (móviles pequeños)*/
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+    nav {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 1em;
+    }
+    nav button {
+        width: calc(100% - 2em);
+        margin: 0.5em auto;
+        font-size: 0.9em;
+        padding: 0.7em 1em;
+    }
+    main {
+        padding: 15px;
+        margin: 15px auto;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    table {
+        min-width: auto; /* Permite que la tabla se encoja más */
+    }
+    
+}
