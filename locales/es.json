@@ -1,0 +1,110 @@
+{
+  "common": {
+    "title": "Comparador Créditos Pro",
+    "subtitle": "Profesional Bancario Chile",
+    "description": "El comparador más completo de créditos de consumo en Chile.",
+    "contact": "Contacto",
+    "calculating": "Calculando mejores ofertas...",
+    "loading": "Cargando..."
+  },
+  "navbar": {
+    "comparador": "Comparador",
+    "faq": "FAQ",
+    "glosario": "Glosario",
+    "language": "Idioma"
+  },
+  "hero": {
+    "badge": "Datos de 6 bancos chilenos · Actualizado hoy",
+    "title_part1": "El mejor ",
+    "title_part2": "Comparador",
+    "title_part3": " de Créditos Chile",
+    "description": "Compare CAE, tasas y condiciones en segundos. Encuentre el crédito perfecto para usted con datos reales.",
+    "active_offers": "Ofertas Activas",
+    "best_cae": "Mejor CAE Hoy",
+    "analyzed_banks": "Bancos Analizados",
+    "cta": "Buscar Mi Crédito Ideal",
+    "example_title": "Ejemplo Resultados"
+  },
+  "comparador": {
+    "filters_title": "Filtros Avanzados",
+    "term_label": "Plazo (meses)",
+    "all_terms": "Todos los plazos",
+    "amount_label": "Monto Máximo Solicitado",
+    "apply_filters": "Aplicar Filtros Avanzados",
+    "clear_filters": "Limpiar Filtros",
+    "found_results": "Ofertas Encontradas",
+    "no_results": "Sin resultados",
+    "no_results_desc": "No encontramos créditos que coincidan exactamente con tus filtros.",
+    "view_all": "Ver Todas las Ofertas",
+    "bank": "Banco",
+    "best_cae_col": "CAE",
+    "rate_term_col": "Tasa",
+    "max_amount_col": "Monto",
+    "contact_bank": "Contactar Banco",
+    "verified": "Oferta Verificada",
+    "insights": {
+      "leader": "Líder del Mercado",
+      "recommended": "Recomendado Expertos",
+      "popular": "Más Solicitado",
+      "short_term": "Ideal Corto Plazo"
+    },
+    "alert_title": "¿Encontraste lo que buscabas?",
+    "alert_desc": "Recibe notificaciones cuando cambien las tasas.",
+    "receive_alerts": "Recibir Alertas"
+  },
+  "banks": {
+    "Banco Estado": "Banco Estado",
+    "Banco de Chile": "Banco de Chile",
+    "Santander": "Santander",
+    "BCI": "BCI",
+    "Scotiabank": "Scotiabank",
+    "Itaú": "Itaú"
+  },
+  "elite": {
+    "system_notification": "Notificación del Sistema",
+    "selection_cap": "Límite de selección alcanzado (Máx 3)",
+    "subscription_success": "Suscripción activada correctamente",
+    "min_selection": "Selecciona al menos 2 bancos/opciones",
+    "executive_review": "Revisión Ejecutiva",
+    "export_report": "Exportar Informe de Análisis",
+    "annual_cost": "Costo Anual (CAE)",
+    "annual_rate": "Tasa Anual",
+    "position": "Posición",
+    "analyzed": "Analizado"
+  },
+  "faq": {
+    "title": "Preguntas",
+    "subtitle": "Frecuentes",
+    "description": "Respuestas a las dudas más comunes sobre créditos de consumo y CAE.",
+    "verified": "Respuesta verificada",
+    "support_cta": "¿No encontraste tu respuesta?",
+    "support_title": "Contáctanos directamente",
+    "support_desc": "Nuestro equipo experto responde en menos de 24 horas.",
+    "support_btn": "Email Soporte",
+    "q1": "¿Qué es CAE?",
+    "a1": "Costo total crédito en % anual.",
+    "q2": "¿Cuota mensual?",
+    "a2": "Fórmula amortización francés."
+  },
+  "glosario": {
+    "title": "Glosario Completo",
+    "subtitle": "50+ términos técnicos explicados por expertos",
+    "description": "Todos los términos financieros explicados de forma clara y precisa. De CAE hasta amortización.",
+    "search_placeholder": "Buscar término... ej: CAE, cuota",
+    "official_def": "Definición oficial",
+    "learn_more": "Aprender más",
+    "no_results": "No se encontraron términos",
+    "no_results_desc": "Intenta con otra palabra clave. Tenemos definiciones de todos los términos técnicos.",
+    "clear_btn": "Limpiar Búsqueda",
+    "t1": "CAE",
+    "d1": "Carga Anual Equivalente.",
+    "t2": "Tasa",
+    "d2": "Interés nominal."
+  },
+  "footer": {
+    "rights": "© 2025 Comparador de Créditos Chile. Todos los derechos reservados.",
+    "updated": "Datos actualizados diariamente desde entidades financieras.",
+    "cmf": "Autorizado CMF",
+    "ssl": "SSL Seguro"
+  }
+}

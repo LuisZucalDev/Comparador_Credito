@@ -6,11 +6,38 @@
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
-.hover-lift {
-  transition: all 0.2s ease-in-out;
+
+.animate-slide-left {
+  animation: slideLeft 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+@keyframes slideLeft {
+  from { opacity: 0; transform: translateX(100px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.hover-lift {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 .hover-lift:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.glass-elite {
+  @apply backdrop-blur-xl bg-white/70 dark:bg-slate-900/40 border border-white/20;
+}
+
+.shadow-luxury {
+  box-shadow: 0 10px 50px -12px rgba(0, 0, 0, 0.25), 0 0 20px rgba(255, 255, 255, 0.1) inset;
+}
+
+.shadow-executive {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.btn-executive {
+  @apply relative overflow-hidden bg-navy-900 dark:bg-white text-white dark:text-navy-900 rounded-2xl font-black uppercase tracking-widest transition-all duration-500 hover:shadow-luxury active:scale-95;
 }
 

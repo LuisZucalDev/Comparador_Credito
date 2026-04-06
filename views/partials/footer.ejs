@@ -1,62 +1,84 @@
-<footer class="bg-gray-900 text-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<footer class="bg-slate-900 text-white mt-auto border-t border-slate-800 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-20">
       <!-- Brand -->
-      <div>
-        <h3 class="text-2xl font-bold text-white mb-4">Comparador Créditos</h3>
-        <p class="text-gray-400 leading-relaxed mb-6">Comparación objetiva de créditos bancarios en Chile. Información actualizada de fuentes oficiales.</p>
-        <div class="flex space-x-4">
-          <a href="#" aria-label="Twitter" class="w-10 h-10 bg-gray-800 hover:bg-gray-700 rounded-lg flex items-center justify-center text-gray-400 hover:text-white transition-colors">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+      <div class="lg:col-span-1 space-y-6">
+        <div class="flex items-center group">
+          <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-600 rounded-2xl flex items-center justify-center shadow-2xl mr-4 group-hover:scale-110 transition-transform">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08 .402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
+          </div>
+          <div>
+            <h3 class="text-2xl font-black bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent"><%= t('common.title') %></h3>
+            <p class="text-sm text-slate-500 font-bold tracking-widest uppercase"><%= t('common.subtitle') %></p>
+          </div>
+        </div>
+        <p class="text-slate-400 leading-relaxed font-medium"><%= t('common.description') %></p>
+        <div class="flex space-x-3">
+          <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-navy-600 rounded-xl flex items-center justify-center text-slate-400 hover:text-white transition-all duration-300 shadow-xl border border-slate-700/50">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
           </a>
         </div>
       </div>
       
-      <!-- Navigation -->
+      <!-- Quick Links -->
       <div>
-        <h4 class="text-lg font-semibold text-white mb-6">Navegación</h4>
-        <ul class="space-y-3">
-          <li><a href="/comparador" class="text-gray-400 hover:text-white transition-colors block py-1">Comparador de Créditos</a></li>
-          <li><a href="/faq" class="text-gray-400 hover:text-white transition-colors block py-1">Preguntas Frecuentes</a></li>
-          <li><a href="/glosario" class="text-gray-400 hover:text-white transition-colors block py-1">Glosario Financiero</a></li>
+        <h4 class="text-lg font-bold text-white mb-8 tracking-wide"><%= t('navbar.comparador') %></h4>
+        <ul class="space-y-4">
+          <li><a href="/comparador" class="text-slate-400 hover:text-white transition-colors duration-200 flex items-center group font-semibold">
+            <span class="w-1.5 h-1.5 bg-navy-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+            <%= t('navbar.comparador') %>
+          </a></li>
+          <li><a href="/faq" class="text-slate-400 hover:text-white transition-colors duration-200 flex items-center group font-semibold">
+            <span class="w-1.5 h-1.5 bg-navy-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+            <%= t('navbar.faq') %>
+          </a></li>
+          <li><a href="/glosario" class="text-slate-400 hover:text-white transition-colors duration-200 flex items-center group font-semibold">
+            <span class="w-1.5 h-1.5 bg-navy-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+            <%= t('navbar.glosario') %>
+          </a></li>
         </ul>
       </div>
       
-      <!-- Legal -->
-      <div>
-        <h4 class="text-lg font-semibold text-white mb-6">Legal</h4>
-        <ul class="space-y-3">
-          <li><a href="#" class="text-gray-400 hover:text-white transition-colors block py-1">Términos de Uso</a></li>
-          <li><a href="#" class="text-gray-400 hover:text-white transition-colors block py-1">Política de Privacidad</a></li>
-          <li><a href="#" class="text-gray-400 hover:text-white transition-colors block py-1">Aviso Legal</a></li>
-        </ul>
-      </div>
-      
-      <!-- Trust -->
-      <div>
-        <h4 class="text-lg font-semibold text-white mb-6">Confianza</h4>
-        <p class="text-gray-400 mb-4">Información verificada con:</p>
-        <div class="flex flex-col space-y-2">
-          <span class="inline-flex items-center text-sm text-gray-400">
-            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+      <!-- Trust badges -->
+      <div class="space-y-6">
+        <h4 class="text-lg font-bold text-white mb-4 tracking-wide"><%= t('footer.ssl') %></h4>
+        <div class="flex items-center p-4 bg-slate-800/50 rounded-2xl border border-slate-700/50 group hover:border-emerald-500/50 transition-all">
+          <div class="w-10 h-10 bg-emerald-500/10 rounded-xl flex items-center justify-center mr-4">
+            <svg class="w-6 h-6 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
             </svg>
-            Autorizado CMF
-          </span>
-          <span class="inline-flex items-center text-sm text-gray-400">
-            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
+          </div>
+          <div class="text-sm font-bold text-slate-100"><%= t('footer.cmf') %></div>
+        </div>
+        <div class="flex items-center p-4 bg-slate-800/50 rounded-2xl border border-slate-700/50 group hover:border-blue-500/50 transition-all">
+          <div class="w-10 h-10 bg-blue-500/10 rounded-xl flex items-center justify-center mr-4">
+            <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
             </svg>
-            SSL Seguro
-          </span>
+          </div>
+          <div class="text-sm font-bold text-slate-100"><%= t('footer.ssl') %></div>
+        </div>
+      </div>
+      
+      <!-- Contact Info -->
+      <div class="space-y-6">
+        <h4 class="text-lg font-bold text-white mb-4 tracking-wide"><%= t('common.contact') %></h4>
+        <div class="p-6 bg-navy-900/50 rounded-2xl border border-navy-800/50 shadow-inner">
+          <p class="text-slate-400 text-sm font-medium leading-relaxed mb-4">
+            <%= t('footer.updated') %>
+          </p>
+          <div class="text-xl font-black text-white">24/7 Support</div>
+          <div class="text-sm text-navy-400 font-bold tracking-tight">contacto@comparadorcreditos.cl</div>
         </div>
       </div>
     </div>
     
-    <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400 text-sm">
-      &copy; 2025 Comparador de Créditos Chile. Todos los derechos reservados. | Datos actualizados diariamente.
+    <div class="border-t border-slate-800 mt-16 pt-10 text-center">
+      <p class="text-slate-500 text-sm font-medium">
+        <%= t('footer.rights') %>
+      </p>
     </div>
   </div>
 </footer>

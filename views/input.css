@@ -1,4 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+    @apply transition-colors duration-500 bg-slate-50 text-slate-900 selection:bg-navy-100 selection:text-navy-900;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .dark body {
+    @apply bg-slate-950 text-slate-100 selection:bg-navy-900 selection:text-navy-200;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+    @apply tracking-tight;
+  }
+}
+
+@layer components {
+  /* Elite Glass Cards */
+  .glass-card {
+    @apply bg-white/40 dark:bg-slate-900/40 backdrop-blur-xl border border-white/40 dark:border-slate-800/20 shadow-executive transition-all duration-700 rounded-4xl md:rounded-5xl;
+  }
+  
+  .glass-card-luxury {
+    @apply bg-white/60 dark:bg-slate-900/60 backdrop-blur-2xl border border-white/50 dark:border-slate-800/30 shadow-luxury transition-all duration-1000 rounded-5xl md:rounded-6xl;
+  }
+
+  .glass-elite {
+    @apply relative overflow-hidden bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl border border-white/40 dark:border-slate-800/30 shadow-elite transition-all duration-700 rounded-5xl md:rounded-6xl;
+  }
+
+  .glass-elite::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-br from-white/30 to-transparent dark:from-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none;
+  }
+
+  /* Shimmer Skeleton */
+  .skeleton-shimmer {
+    @apply relative overflow-hidden bg-slate-100 dark:bg-slate-900/60 rounded-3xl;
+  }
+
+  .skeleton-shimmer::after {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/40 dark:via-white/5 to-transparent -translate-x-full animate-shimmer;
+  }
+
+  .btn-executive {
+    @apply relative px-8 py-4 md:px-10 md:py-5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-black rounded-full transition-all duration-500 shadow-xl hover:shadow-indigo-500/20 hover:scale-[1.03] active:scale-95 overflow-hidden;
+  }
+
+  /* Elite Nav Link */
+  .nav-link-executive {
+    @apply px-6 py-3 rounded-full text-sm font-bold text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all duration-500 relative overflow-hidden;
+  }
+
+  /* Blobs V2 */
+  .blob-container {
+    @apply fixed inset-0 z-[-1] overflow-hidden pointer-events-none;
+  }
+
+  .blob {
+    @apply absolute rounded-full mix-blend-multiply dark:mix-blend-overlay filter blur-[80px] md:blur-[140px] opacity-25 dark:opacity-15 animate-blob transition-all duration-[3000ms];
+  }
+
+  .blob-1 { @apply w-96 h-96 md:w-[800px] md:h-[800px] bg-navy-500 -top-20 -left-20; }
+  .blob-2 { @apply w-80 h-80 md:w-[700px] md:h-[700px] bg-emerald-500 top-1/2 -right-20; animation-delay: 2s; }
+  .blob-3 { @apply w-72 h-72 md:w-[600px] md:h-[600px] bg-indigo-500 bottom-0 left-1/4; animation-delay: 4s; }
+
+  /* Thermometer Bar Utility */
+  .cae-thermometer {
+    @apply h-1.5 md:h-2 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden relative border border-slate-200/20;
+  }
+
+  .cae-thermometer-fill {
+    @apply absolute inset-y-0 left-0 transition-all duration-[1500ms];
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
+
+/* Custom Scrollbar Elite */
+@media (min-width: 768px) {
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { 
+    @apply bg-slate-300 dark:bg-slate-800 rounded-full border-4 border-transparent bg-clip-padding hover:bg-slate-400 dark:hover:bg-slate-700 transition-colors;
+  }
+}

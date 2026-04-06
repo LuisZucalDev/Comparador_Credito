@@ -1,108 +1,124 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="<%= currentLang %>">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Glosario Financiero - Comparador Créditos</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
-<script>
- tailwind.config = {
-  theme: {
-    extend: {
-      colors: {
-        navy: {
-          50: '#eff6ff',
-          500: '#3b82f6', 
-          600: '#2563eb',
-          700: '#1d4ed8'
-        }
-      }
-    }
-  }
- }
-</script>
-
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title><%= t('navbar.glosario') %> - <%= t('common.title') %></title>
+  <link href="/css/tailwind.css" rel="stylesheet">
+  <link href="/css/animations.css" rel="stylesheet">
 </head>
-<body class="bg-gray-50 min-h-screen">
-<%- include('partials/navbar_professional') %>
+<body class="bg-slate-50 dark:bg-slate-950 transition-colors duration-500 min-h-screen flex flex-col font-sans overflow-x-hidden">
   
-  <!-- Hero específico Glosario -->
-  <section class="bg-gradient-to-r from-slate-900/5 to-navy-900/5 border-b border-gray-100 py-20">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4 fade-in">
-        Glosario Financiero ( <%= glosario.length %> términos )
-      </h1>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-        Términos técnicos del mundo de los créditos explicados de forma clara y precisa
-      </p>
+  <%- include('partials/navbar') %>
+  
+  <!-- Hero Glosario Executive Mobile Optimized -->
+  <section class="relative min-h-[60vh] md:min-h-[70vh] flex items-center pt-28 pb-12 sm:pt-32 sm:pb-24 overflow-hidden border-b border-slate-200 dark:border-slate-800 bg-white/30 dark:bg-slate-900/30">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 slide-up">
+      <div class="max-w-3xl mx-auto">
+        <div class="inline-flex items-center px-4 py-1.5 sm:px-6 sm:py-3 bg-navy-900 dark:bg-white text-white dark:text-navy-900 font-display font-black rounded-xl md:rounded-2xl text-[9px] sm:text-xs shadow-executive mb-8 sm:mb-12 tracking-[0.2em] sm:tracking-[0.3em] uppercase">Executive Database</div>
+        <h1 class="text-4xl sm:text-6xl lg:text-9xl font-display font-black text-slate-900 dark:text-white mb-6 sm:mb-10 tracking-[0.05em] uppercase leading-[0.95] font-oswald animate-fade-in break-words">
+          <%= t('glosario.title') %>
+        </h1>
+        <p class="text-base sm:text-xl lg:text-2xl text-slate-500 dark:text-slate-400 leading-relaxed mb-10 sm:mb-16 font-medium max-w-2xl mx-auto">
+          <%= t('glosario.description') %>
+        </p>
+        <div class="relative max-w-2xl mx-auto group/search">
+          <input type="text" id="search-glosario" placeholder="<%= t('glosario.search_placeholder') %>" 
+            class="w-full px-8 py-5 sm:px-12 sm:py-8 bg-white dark:bg-slate-900/80 backdrop-blur-3xl border-2 border-slate-100 dark:border-slate-800 rounded-2xl md:rounded-[2.5rem] text-xl sm:text-2xl font-display font-bold shadow-luxury focus:ring-8 md:focus:ring-12 focus:ring-navy-600/5 focus:border-navy-600 dark:focus:border-navy-400 transition-all text-slate-900 dark:text-white">
+          <div class="absolute right-6 sm:right-10 top-1/2 -translate-y-1/2 flex items-center space-x-3 sm:space-x-4">
+             <div class="w-px h-6 sm:h-8 bg-slate-200 dark:bg-slate-800 hidden sm:block"></div>
+             <svg class="w-7 h-7 sm:w-10 sm:h-10 text-slate-100 dark:text-slate-900 group-focus-within/search:text-navy-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-    <!-- Search -->
-    <div class="mb-12">
-      <div class="relative max-w-md mx-auto">
-        <input type="text" id="searchGlossary" placeholder="Buscar término (ej: CAE)..." 
-               class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-navy-500 focus:border-navy-500 transition-all shadow-sm text-lg">
-        <svg class="absolute left-4 top-1/2 transform -translate-y-1/2 w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-        </svg>
-      </div>
-    </div>
-
-    <% if (glosario.length === 0) { %>
-      <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-16 text-center">
-        <svg class="w-20 h-20 text-gray-400 mx-auto mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-        </svg>
-        <h3 class="text-2xl font-bold text-gray-900 mb-4">Glosario vacío</h3>
-        <p class="text-gray-600 mb-8">No hay términos disponibles en este momento.</p>
-      </div>
-    <% } else { %>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <% glosario.sort((a,b) => a.termino.localeCompare(b.termino)).forEach((item, index) => { %>
-          <div class="bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-md hover:border-navy-200 transition-all duration-200 hover-lift group">
-            <div class="p-8">
-              <div class="flex items-start space-x-4 mb-4">
-                <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-navy-500 to-navy-600 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-md">
-                  <%= item.termino.charAt(0).toUpperCase() %>
-                </div>
-                <div class="flex-1 min-w-0">
-                  <h3 class="text-2xl font-black text-gray-900 group-hover:text-navy-600 transition-colors mb-2 line-clamp-2">
-                    <%= item.termino %>
-                  </h3>
-                  <p class="text-gray-700 leading-relaxed text-base"><%= item.definicion %></p>
-                </div>
+  <!-- Glosario Display Mobile Optimized -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-32 flex-grow">
+    <div id="glosario-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16">
+      
+      <% glosario.forEach((term, index) => { %>
+        <div class="group glass-card rounded-2xl md:rounded-[3rem] border-white shadow-executive hover:shadow-luxury transition-all duration-700 overflow-hidden cursor-pointer hover-glosario slide-up" style="animation-delay: <%= index * 0.05 %>s;">
+          <div class="p-8 sm:p-12 hover:bg-gradient-to-br hover:from-white/50 hover:to-navy-50/10 dark:hover:from-slate-800/50 dark:hover:to-navy-900/10 h-full flex flex-col items-center text-center">
+            
+            <div class="w-16 h-16 sm:w-24 sm:h-24 bg-navy-900 dark:bg-white text-white dark:text-navy-900 rounded-2xl md:rounded-[2rem] flex items-center justify-center font-display font-black text-2xl sm:text-4xl shadow-luxury group-hover:rotate-12 transition-transform duration-500 mb-8 sm:mb-10">
+              <%= t(term.t_key).charAt(0).toUpperCase() %>
+            </div>
+            
+            <h3 class="text-2xl sm:text-3xl font-display font-black text-slate-900 dark:text-white mb-4 sm:mb-6 uppercase tracking-widest line-clamp-2 leading-none"><%= t(term.t_key) %></h3>
+            
+            <div class="w-10 h-1 bg-gradient-to-r from-navy-600 to-indigo-600 rounded-full mb-8 sm:mb-10 opacity-40 group-hover:w-16 sm:group-hover:w-20 group-hover:opacity-100 transition-all duration-500"></div>
+            
+            <p class="text-base sm:text-xl text-slate-500 dark:text-slate-400 leading-relaxed font-medium line-clamp-4 sm:line-clamp-3 group-hover:line-clamp-none transition-all duration-1000 flex-grow"><%= t(term.d_key) %></p>
+            
+            <div class="mt-8 sm:mt-12 pt-8 sm:pt-10 border-t border-slate-100 dark:border-slate-800 w-full flex items-center justify-between opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+              <span class="text-[8px] sm:text-[10px] text-slate-300 dark:text-slate-700 font-black uppercase tracking-[0.3em]">Executive Grade</span>
+              <div class="flex items-center space-x-2 sm:space-x-3 text-navy-600 dark:text-navy-400">
+                <span class="text-[10px] sm:text-xs font-black uppercase tracking-tight"><%= t('glosario.learn_more') %></span>
+                <svg class="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
               </div>
-              <span class="inline-block bg-navy-50 text-navy-700 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">
-                Término clave
-              </span>
             </div>
           </div>
-        <% }) %>
+        </div>
+      <% }) %>
+      
+    </div>
+
+    <!-- Empty Search State Mobile Optimized -->
+    <div id="no-results" class="hidden text-center py-24 sm:py-48 fade-in">
+      <div class="w-32 h-32 sm:w-40 sm:h-40 bg-slate-100 dark:bg-slate-900 rounded-2xl md:rounded-[2.5rem] flex items-center justify-center mx-auto mb-10 shadow-executive">
+        <svg class="w-16 h-16 sm:w-20 sm:h-20 text-slate-200 dark:text-slate-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
       </div>
-    <% } %>
+      <h3 class="text-3xl sm:text-5xl font-display font-black text-slate-900 dark:text-white mb-6 uppercase tracking-tighter"><%= t('glosario.no_results') %></h3>
+      <p class="text-lg sm:text-2xl text-slate-400 dark:text-slate-600 mb-12 sm:mb-16 max-w-xl mx-auto font-medium leading-relaxed uppercase tracking-widest text-[9px] sm:text-xs"><%= t('glosario.no_results_desc') %></p>
+      <button onclick="clearSearch()" class="btn-executive text-lg sm:text-xl px-12 sm:px-16 py-5 sm:py-6 shadow-luxury">
+        <%= t('glosario.clear_btn') %>
+      </button>
+    </div>
+    
   </main>
 
-<%- include('partials/footer_professional') %>
-  
-  <!-- animations.css served -->
-  
+  <%- include('partials/footer') %>
+
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const searchInput = document.getElementById('searchGlossary');
-      const cards = document.querySelectorAll('[class*="grid"] > div');
-      
+    const searchInput = document.getElementById('search-glosario');
+    const grid = document.getElementById('glosario-grid');
+    const items = grid.querySelectorAll('.hover-glosario');
+    const noResults = document.getElementById('no-results');
+    
+    if (searchInput) {
       searchInput.addEventListener('input', (e) => {
-        const query = e.target.value.toLowerCase();
-        cards.forEach(card => {
-          const term = card.querySelector('h3').textContent.toLowerCase();
-          card.style.display = term.includes(query) || query.length === 0 ? 'block' : 'none';
+        const term = e.target.value.toLowerCase();
+        let visibleCount = 0;
+        
+        items.forEach(item => {
+          const title = item.querySelector('h3').textContent.toLowerCase();
+          const content = item.querySelector('p').textContent.toLowerCase();
+          const isVisible = title.includes(term) || content.includes(term);
+          
+          item.style.display = isVisible ? 'block' : 'none';
+          if (isVisible) {
+            visibleCount++;
+          }
         });
+        
+        if (visibleCount === 0) {
+          grid.classList.add('hidden');
+          noResults.classList.remove('hidden');
+        } else {
+          grid.classList.remove('hidden');
+          noResults.classList.add('hidden');
+        }
       });
-    });
+    }
+    
+    function clearSearch() {
+      searchInput.value = '';
+      items.forEach(item => item.style.display = 'block');
+      noResults.classList.add('hidden');
+      grid.classList.remove('hidden');
+    }
   </script>
 </body>
 </html>
-

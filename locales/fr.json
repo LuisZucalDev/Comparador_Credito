@@ -1,0 +1,98 @@
+{
+  "common": {
+    "title": "Comparateur de Crédit Pro",
+    "subtitle": "Professionnel Bancaire Chili",
+    "description": "Le comparateur de crédit le plus complet au Chili.",
+    "contact": "Contact",
+    "calculating": "Calcul des meilleures offres...",
+    "loading": "Chargement..."
+  },
+  "navbar": {
+    "comparador": "Comparateur",
+    "faq": "FAQ",
+    "glosario": "Glossaire",
+    "language": "Langue"
+  },
+  "hero": {
+    "badge": "Données de 6 banques chiliennes · Mis à jour aujourd'hui",
+    "title_part1": "Le Meilleur ",
+    "title_part2": "Comparateur",
+    "title_part3": " de Crédits Chili",
+    "description": "Comparez le TAEG, les taux et les conditions en quelques secondes. Trouvez le crédit parfait pour vous avec des données réelles.",
+    "active_offers": "Offres Actives",
+    "best_cae": "Meilleur TAEG Aujourd'hui",
+    "analyzed_banks": "Banques Analysées",
+    "cta": "Chercher Mon Crédit Idéal",
+    "example_title": "Exemple de Résultats"
+  },
+  "comparador": {
+    "filters_title": "Filtres Avancés",
+    "term_label": "Durée (mois)",
+    "all_terms": "Toutes les durées",
+    "amount_label": "Montant Maximum Demandé",
+    "apply_filters": "Appliquer les Filtres",
+    "clear_filters": "Effacer les Filtres",
+    "found_results": "Offres Trouvées",
+    "no_results": "Aucun résultat",
+    "no_results_desc": "Nous n'avons trouvé aucun crédit correspondant exactement à vos filtres.",
+    "view_all": "Voir Toutes les Offres",
+    "bank": "Banque",
+    "best_cae_col": "Meilleur TAEG",
+    "rate_term_col": "Taux / Durée",
+    "max_amount_col": "Montant Max",
+    "contact_bank": "Contacter la Banque",
+    "verified": "Offre Vérifiée",
+    "insights": {
+      "leader": "Leader du Marché",
+      "recommended": "Conseillé par Experts",
+      "popular": "Le Plus Demandé",
+      "short_term": "Idéal Court Terme"
+    },
+    "alert_title": "Avez-vous trouvé ce que vous cherchiez ?",
+    "alert_desc": "Recevez des notifications quand les taux changent.",
+    "receive_alerts": "Recevoir des Alertes"
+  },
+  "banks": {
+    "Banco Estado": "Banque de l'État",
+    "Banco de Chile": "Banque du Chili",
+    "Santander": "Santander",
+    "BCI": "BCI",
+    "Scotiabank": "Scotiabank",
+    "Itaú": "Itaú"
+  },
+  "faq": {
+    "title": "Questions",
+    "subtitle": "Fréquemment Posées",
+    "description": "Réponses aux questions courantes sur les crédits à la consommation et le TAEG.",
+    "verified": "Réponse vérifiée",
+    "support_cta": "Vous n'avez pas trouvé votre réponse ?",
+    "support_title": "Contactez-nous directement",
+    "support_desc": "Notre équipe d'experts répond en moins de 24 heures.",
+    "support_btn": "Email de Support",
+    "q1": "Qu'est-ce que le TAEG ?",
+    "a1": "Coût total du crédit en % annuel.",
+    "q2": "Mensualité ?",
+    "a2": "Formule d'amortissement française."
+  },
+  "glosario": {
+    "title": "Glossaire Complet",
+    "subtitle": "50+ termes techniques expliqués par des experts",
+    "description": "Tous les termes financiers expliqués de manière claire et précise. Du TAEG à l'amortissement.",
+    "search_placeholder": "Rechercher un terme... ex: TAEG, mensualité",
+    "official_def": "Définition officielle",
+    "learn_more": "En savoir plus",
+    "no_results": "Aucun terme trouvé",
+    "no_results_desc": "Essayez un autre mot-clé. Nous avons des définitions pour tous les termes techniques.",
+    "clear_btn": "Effacer la Recherche",
+    "t1": "TAEG",
+    "d1": "Taux Annuel Effectif Global.",
+    "t2": "Taux",
+    "d2": "Intérêt nominal."
+  },
+  "footer": {
+    "rights": "© 2025 Comparateur de Crédit Chili. Tous droits réservés.",
+    "updated": "Données mises à jour quotidiennement depuis les entités financières.",
+    "cmf": "Autorisé CMF",
+    "ssl": "SSL Sécurisé"
+  }
+}

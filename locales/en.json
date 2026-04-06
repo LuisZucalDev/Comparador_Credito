@@ -1,0 +1,110 @@
+{
+  "common": {
+    "title": "Credit Comparator Pro",
+    "subtitle": "Chile Banking Professional",
+    "description": "The most complete credit comparator in Chile.",
+    "contact": "Contact",
+    "calculating": "Calculating best offers...",
+    "loading": "Loading..."
+  },
+  "navbar": {
+    "comparador": "Comparator",
+    "faq": "FAQ",
+    "glosario": "Glossary",
+    "language": "Language"
+  },
+  "hero": {
+    "badge": "Data from 6 Chilean banks · Updated today",
+    "title_part1": "The Best ",
+    "title_part2": "Comparator",
+    "title_part3": " for Chile Credits",
+    "description": "Compare CAE, rates and conditions in seconds. Find the perfect credit for you with real data.",
+    "active_offers": "Active Offers",
+    "best_cae": "Best CAE Today",
+    "analyzed_banks": "Analyzed Banks",
+    "cta": "Search My Ideal Credit",
+    "example_title": "Example Results"
+  },
+  "comparador": {
+    "filters_title": "Advanced Filters",
+    "term_label": "Term (months)",
+    "all_terms": "All terms",
+    "amount_label": "Maximum Amount Requested",
+    "apply_filters": "Apply Advanced Filters",
+    "clear_filters": "Clear Filters",
+    "found_results": "Offers Found",
+    "no_results": "No results",
+    "no_results_desc": "We didn't find any credits that exactly match your filters.",
+    "view_all": "View All Offers",
+    "bank": "Bank",
+    "best_cae_col": "Best CAE",
+    "rate_term_col": "Rate / Term",
+    "max_amount_col": "Max Amount",
+    "contact_bank": "Contact Bank",
+    "verified": "Verified Offer",
+    "insights": {
+      "leader": "Market Leader",
+      "recommended": "Expert Recommended",
+      "popular": "Most Requested",
+      "short_term": "Ideal Short Term"
+    },
+    "alert_title": "Did you find what you were looking for?",
+    "alert_desc": "Receive notifications when rates change.",
+    "receive_alerts": "Receive Alerts"
+  },
+  "banks": {
+    "Banco Estado": "State Bank",
+    "Banco de Chile": "Bank of Chile",
+    "Santander": "Santander",
+    "BCI": "BCI",
+    "Scotiabank": "Scotiabank",
+    "Itaú": "Itaú"
+  },
+  "elite": {
+    "system_notification": "System Notification",
+    "selection_cap": "Selection Cap Reached (Max 3)",
+    "subscription_success": "Subscription successfully activated",
+    "min_selection": "Select at least 2 banks/options",
+    "executive_review": "Executive Review",
+    "export_report": "Export Analysis Report",
+    "annual_cost": "Annual Cost (CAE)",
+    "annual_rate": "Annual Rate",
+    "position": "Position",
+    "analyzed": "Analyzed"
+  },
+  "faq": {
+    "title": "Questions",
+    "subtitle": "Frequently Asked",
+    "description": "Answers to common questions about consumer credits and CAE.",
+    "verified": "Verified answer",
+    "support_cta": "Didn't find your answer?",
+    "support_title": "Contact us directly",
+    "support_desc": "Our expert team responds in less than 24 hours.",
+    "support_btn": "Support Email",
+    "q1": "What is CAE?",
+    "a1": "Total credit cost in annual %.",
+    "q2": "Monthly installment?",
+    "a2": "French amortization formula."
+  },
+  "glosario": {
+    "title": "Complete Glossary",
+    "subtitle": "50+ technical terms explained by experts",
+    "description": "All financial terms explained clearly and precisely. From CAE to amortization.",
+    "search_placeholder": "Search term... e.g.: CAE, installment",
+    "official_def": "Official definition",
+    "learn_more": "Learn more",
+    "no_results": "No terms found",
+    "no_results_desc": "Try another keyword. We have definitions for all technical terms.",
+    "clear_btn": "Clear Search",
+    "t1": "CAE",
+    "d1": "Equivalent Annual Charge.",
+    "t2": "Rate",
+    "d2": "Nominal interest."
+  },
+  "footer": {
+    "rights": "© 2025 Chile Credit Comparator. All rights reserved.",
+    "updated": "Data updated daily from financial entities.",
+    "cmf": "CMF Authorized",
+    "ssl": "Secure SSL"
+  }
+}

@@ -1,86 +1,104 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="<%= currentLang %>">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Preguntas Frecuentes - Comparador Créditos</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
-<script>
- tailwind.config = {
-  theme: {
-    extend: {
-      colors: {
-        navy: {
-          50: '#eff6ff',
-          500: '#3b82f6', 
-          600: '#2563eb',
-          700: '#1d4ed8'
-        }
-      }
-    }
-  }
- }
-</script>
-
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title><%= t('navbar.faq') %> - <%= t('common.title') %></title>
+  <link href="/css/tailwind.css" rel="stylesheet">
+  <link href="/css/animations.css" rel="stylesheet">
 </head>
-<body class="bg-gray-50 min-h-screen">
-<%- include('partials/navbar_professional') %>
+<body class="bg-slate-50 dark:bg-slate-950 transition-colors duration-500 min-h-screen flex flex-col font-sans overflow-x-hidden">
   
-  <!-- Hero específico FAQ -->
-  <section class="bg-gradient-to-r from-navy-900/5 to-blue-900/5 border-b border-gray-100 py-20">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4 fade-in">
-        Preguntas Frecuentes ( <%= faqs.length %> )
+  <%- include('partials/navbar') %>
+  
+  <!-- Hero FAQ Executive Mobile Optimized -->
+  <section class="relative min-h-[50vh] md:min-h-[60vh] flex items-center pt-28 pb-12 sm:pt-32 sm:pb-24 overflow-hidden border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 slide-up">
+      <div class="inline-flex items-center px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-[9px] sm:text-xs font-black bg-white dark:bg-slate-900/50 text-slate-800 dark:text-white border border-slate-200 dark:border-slate-800 mb-8 sm:mb-10 shadow-executive tracking-[0.3em] uppercase animate-fade-in animate-float">
+        Help & Support
+      </div>
+      <h1 class="text-4xl sm:text-6xl lg:text-8xl font-display font-black text-slate-900 dark:text-white mb-6 sm:mb-8 tracking-tighter uppercase leading-[0.95]">
+        <%= t('faq.title') %><br>
+        <span class="text-2xl sm:text-4xl lg:text-6xl text-slate-400 dark:text-slate-600 font-light italic font-sans lowercase"><%= t('faq.subtitle') %></span>
       </h1>
-      <p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-        Respuestas claras y detalladas a las dudas más comunes sobre créditos bancarios
+      <p class="text-base sm:text-xl lg:text-2xl text-slate-500 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed mb-8 sm:mb-12 font-medium">
+        <%= t('faq.description') %>
       </p>
     </div>
   </section>
 
-  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-    <div class="space-y-1 mb-12">
-      <h2 class="text-2xl font-bold text-gray-900">Créditos de Consumo</h2>
-      <p class="text-gray-600">Temas más consultados por nuestros usuarios</p>
-    </div>
-
-    <% if (faqs.length === 0) { %>
-      <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-16 text-center">
-        <svg class="w-20 h-20 text-gray-400 mx-auto mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-        </svg>
-        <h3 class="text-2xl font-bold text-gray-900 mb-4">No hay preguntas frecuentes</h3>
-        <p class="text-gray-600 mb-8">Pronto agregaremos las preguntas más comunes.</p>
-      </div>
-    <% } else { %>
-      <div class="space-y-4">
-        <% faqs.forEach((faq, index) => { %>
-          <div class="bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-md hover:border-navy-200 transition-all duration-200 hover-lift">
-            <button class="w-full text-left p-8 hover:bg-gray-50 rounded-xl focus:outline-none focus:ring-2 focus:ring-navy-500">
-              <div class="flex items-start space-x-4">
-                <div class="flex-shrink-0 w-10 h-10 bg-navy-100 rounded-lg flex items-center justify-center mt-1">
-                  <svg class="w-6 h-6 text-navy-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                  </svg>
-                </div>
-                <div class="flex-1">
-                  <h3 class="text-xl font-bold text-gray-900 mb-3"><%= faq.pregunta %></h3>
-                  <div class="text-gray-700 leading-relaxed space-y-2">
-                    <%= faq.respuesta.split('\n').join('</p><p class="mt-2">') %>
-                  </div>
+  <!-- FAQ Content Executive Mobile Optimized -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-24 -mt-12 md:-mt-24 lg:-mt-32 relative z-20 flex-grow">
+    <div class="space-y-6 md:space-y-10">
+      
+      <% faqs.forEach((faq, index) => { %>
+        <div class="group glass-card-luxury rounded-2xl md:rounded-[3rem] border-white/60 dark:border-slate-800/60 hover:shadow-luxury transition-all duration-700 overflow-hidden slide-up" style="animation-delay: <%= index * 0.1 %>s;">
+          <div class="p-6 md:p-12 cursor-pointer flex items-center justify-between group/q" onclick="toggleFaq(this)">
+            <div class="flex items-center space-x-6 md:space-x-10">
+              <div class="w-10 h-10 sm:w-16 sm:h-16 bg-navy-900 dark:bg-white text-white dark:text-navy-900 rounded-xl md:rounded-[1.5rem] flex items-center justify-center font-display font-black text-lg md:text-2xl shadow-luxury group-hover/q:rotate-12 transition-transform duration-500">
+                <%= (index + 1).toString().padStart(2, '0') %>
+              </div>
+              <div class="flex-1 min-w-0">
+                <h3 class="text-base sm:text-xl md:text-2xl font-display font-black text-slate-900 dark:text-white transition-colors uppercase tracking-tight group-hover/q:text-navy-600 dark:group-hover/q:text-navy-400 leading-tight truncate md:whitespace-normal"><%= t(faq.q_key) %></h3>
+                <div class="mt-1 md:mt-2 inline-flex items-center text-emerald-600 dark:text-emerald-400 font-black text-[8px] sm:text-[10px] uppercase tracking-widest bg-emerald-500/5 px-2 py-0.5 rounded-lg border border-emerald-500/10 opacity-0 group-hover/q:opacity-100 transition-all">
+                  <%= t('faq.verified') %>
                 </div>
               </div>
-            </button>
+            </div>
+            <div class="w-8 h-8 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center text-slate-200 dark:text-slate-800 transition-all duration-500 group-hover/q:bg-navy-600/10 group-hover/q:text-navy-600 dark:group-hover/q:text-navy-400 icon-plus">
+              <svg class="w-5 h-5 sm:w-8 sm:h-8 transform group-hover/q:rotate-45 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 6v12M6 12h12"/>
+              </svg>
+            </div>
           </div>
-        <% }) %>
+          
+          <!-- Answer -->
+          <div class="faq-answer max-h-0 overflow-hidden transition-all duration-700 opacity-0 px-6 md:px-12 bg-slate-50/50 dark:bg-slate-900/50 border-t border-slate-100 dark:border-slate-800">
+            <div class="py-8 md:py-12">
+              <p class="text-base sm:text-xl text-slate-600 dark:text-slate-400 leading-relaxed font-medium"><%= t(faq.a_key) %></p>
+              <div class="mt-8 md:mt-12 flex flex-wrap gap-2 sm:gap-3">
+                <span class="px-4 py-1.5 bg-navy-900 text-white dark:bg-white dark:text-navy-900 font-black rounded-xl text-[8px] sm:text-[10px] uppercase tracking-[0.2em] shadow-executive">Support Info</span>
+                <span class="px-4 py-1.5 glass-card rounded-xl text-slate-400 font-black text-[8px] sm:text-[10px] uppercase tracking-[0.2em]">Expert Grade</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+      
+    </div>
+
+    <!-- Executive Contact Footer Mobile Optimized -->
+    <div class="mt-24 md:mt-40 text-center slide-up">
+      <div class="inline-flex items-center px-4 py-2 sm:px-6 sm:py-3 bg-white dark:bg-slate-900 text-slate-800 dark:text-white font-display font-black rounded-xl md:rounded-2xl text-[9px] sm:text-xs shadow-executive mb-8 sm:mb-12 tracking-[0.3em] uppercase underline underline-offset-8 decoration-navy-600 decoration-2">Direct Inquiry</div>
+      <h3 class="text-3xl sm:text-4xl lg:text-6xl font-display font-black text-slate-900 dark:text-white mb-6 md:mb-8 tracking-tighter uppercase font-oswald max-w-2xl mx-auto"><%= t('faq.support_title') %></h3>
+      <p class="text-base sm:text-xl text-slate-500 dark:text-slate-400 mb-10 md:mb-16 max-w-xl mx-auto font-medium leading-relaxed"><%= t('faq.support_desc') %></p>
+      <div class="flex justify-center flex-col sm:flex-row px-4">
+        <a href="mailto:executive@comparador.cl" class="btn-executive text-lg sm:text-2xl py-5 sm:py-8 px-10 sm:px-16 tracking-tight flex items-center justify-center">
+           <svg class="w-6 h-6 sm:w-8 sm:h-8 mr-4 sm:mr-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+           <%= t('faq.support_btn') %>
+        </a>
       </div>
-    <% } %>
+    </div>
   </main>
 
-<%- include('partials/footer_professional') %>
-  
-  <!-- animations.css served -->
+  <%- include('partials/footer') %>
+
+  <script>
+    function toggleFaq(container) {
+      const parent = container.parentElement;
+      const answer = parent.querySelector('.faq-answer');
+      const icon = container.querySelector('.icon-plus svg');
+      
+      if (answer.classList.contains('max-h-0')) {
+        answer.classList.remove('max-h-0', 'opacity-0');
+        answer.classList.add('max-h-[800px]', 'opacity-100');
+        icon.classList.add('rotate-45');
+      } else {
+        answer.classList.add('max-h-0', 'opacity-0');
+        answer.classList.remove('max-h-[800px]', 'opacity-100');
+        icon.classList.remove('rotate-45');
+      }
+    }
+  </script>
 </body>
 </html>
-

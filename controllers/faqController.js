@@ -1,8 +1,10 @@
-const mockData = global.mockData;
+// Data from global mockData set by server.js
+const getMockData = () => global.mockData;
 
 exports.obtenerFaqJSON = async (req, res) => {
   try {
-    const faqs = mockData.mockFaqs;
+    const mockData = getMockData();
+    const faqs = (mockData && mockData.mockFaqs) || [];
     res.json(faqs);
   } catch (error) {
     console.error('Error FAQ JSON:', error);
@@ -12,8 +14,14 @@ exports.obtenerFaqJSON = async (req, res) => {
 
 exports.renderFaq = async (req, res) => {
   try {
-    const faqs = mockData.mockFaqs;
-    res.render('faq', { faqs, total: faqs.length });
+    const mockData = getMockData();
+    const faqs = (mockData && mockData.mockFaqs) || [];
+    res.render('faq', { 
+      faqs, 
+      total: faqs.length,
+      t: res.locals.t,
+      currentLang: res.locals.currentLang
+    });
   } catch (error) {
     console.error('Error render FAQ:', error);
     res.status(500).send('Error interno');

@@ -1,6 +1,6 @@
 const CreditService = require('../services/CreditService');
-// Data from global mockData set by server.js
-// Use global mockData from server.js
+const bankConfig = require('../config/banks');
+
 const getMockData = () => global.mockData;
 
 exports.obtenerCreditosJSON = async (req, res) => {
@@ -10,9 +10,8 @@ exports.obtenerCreditosJSON = async (req, res) => {
     if (!mockCreditos) {
       return res.status(500).json({ error: 'Datos no disponibles' });
     }
-    const creditos = mockCreditos;
     const { plazo, monto } = req.query;
-    const creditosFiltrados = CreditService.filterCredits(creditos, plazo, monto);
+    const creditosFiltrados = CreditService.filterCredits(mockCreditos, plazo, monto);
     
     res.json({
       creditos: creditosFiltrados,
@@ -25,24 +24,6 @@ exports.obtenerCreditosJSON = async (req, res) => {
   }
 };
 
-// Función helper para calcular mejor CAE y stats
-function calcularStats(creditosFiltrados) {
-  if (creditosFiltrados.length === 0) return null;
-  
-  const mejorCAE = creditosFiltrados.reduce((min, c) => 
-    parseFloat(c.cae.replace('%', '')) < parseFloat(min.cae.replace('%', '')) ? c : min
-  );
-  
-  const avgCAE = creditosFiltrados.reduce((sum, c) => sum + parseFloat(c.cae.replace('%', '')), 0) / creditosFiltrados.length;
-  
-  return {
-    mejorCAE: mejorCAE.cae,
-    mejorBanco: mejorCAE.banco,
-    avgCAE: avgCAE.toFixed(1) + '%',
-    total: creditosFiltrados.length
-  };
-}
-
 exports.renderComparador = async (req, res) => {
   try {
     const mockData = getMockData();
@@ -50,17 +31,27 @@ exports.renderComparador = async (req, res) => {
     if (!mockCreditos) {
       return res.status(500).send('Datos no disponibles');
     }
-    const creditos = mockCreditos;
-    const { plazo, monto } = req.query;
-    const creditosFiltrados = CreditService.filterCredits(creditos, plazo, monto);
-    const stats = calcularStats(creditosFiltrados);
     
+    const { plazo, monto } = req.query;
+    const creditosFiltrados = CreditService.filterCredits(mockCreditos, plazo, monto);
+    const stats = CreditService.calculateStats(creditosFiltrados);
+    
+    // Inject bank configuration into each credit object for easier view rendering
+    const creditosConConfig = creditosFiltrados.map(c => ({
+      ...c,
+      config: bankConfig[c.banco] || { color: 'slate-500', icon: '🏦', gradient: 'from-slate-500/10 to-slate-600/10' }
+    }));
+
     res.render('comparador', {
-      creditos: creditosFiltrados,
+      creditos: creditosConConfig,
       plazo: plazo || '',
       monto: monto || '',
+      currentFilters: { plazo, monto },
       total: creditosFiltrados.length,
-      stats: stats
+      stats: stats,
+      bankConfig: bankConfig,
+      t: res.locals.t,
+      currentLang: res.locals.currentLang
     });
   } catch (error) {
     console.error('Error render comparador:', error);
