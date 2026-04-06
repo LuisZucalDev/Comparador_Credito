@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glosario Financiero Completo - Términos Créditos</title>
+  <link href="/css/tailwind.css" rel="stylesheet">
+  <link href="/css/animations.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen">
+  
+  <%- include('partials/navbar_professional') %>
+  
+  <!-- Hero Glosario -->
+  <section class="py-32 bg-white/50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="max-w-3xl mx-auto">
+        <h1 class="text-5xl lg:text-7xl font-black text-gray-900 mb-6 bg-gradient-to-r from-navy-600 to-blue-600 bg-clip-text leading-tight">
+          Glosario Completo
+        </h1>
+        <div class="inline-flex items-center px-6 py-3 bg-emerald-100 text-emerald-800 font-bold rounded-2xl text-xl shadow-lg mb-12">
+          <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+          </svg>
+          50+ términos técnicos explicados por expertos
+        </div>
+        <p class="text-xl lg:text-2xl text-gray-600 leading-relaxed mb-12">
+          Todos los términos financieros del mundo del crédito explicados de forma clara y precisa. De CAE hasta amortización francesa.
+        </p>
+        <div class="relative max-w-md mx-auto">
+          <input type="text" id="search-glosario" placeholder="Buscar término... ej: CAE, cuota" 
+            class="w-full px-8 py-6 border-2 border-gray-200 rounded-3xl text-xl font-semibold shadow-xl focus:ring-4 focus:ring-navy-200 focus:border-navy-500 transition-all text-gray-800 bg-white/80 backdrop-blur-sm">
+          <svg class="w-8 h-8 text-gray-400 absolute right-5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Glosario Grid -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+    <div id="glosario-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <% glosario.forEach((term) => { %>
+        <div class="group bg-white rounded-3xl shadow-xl border border-gray-200 hover:shadow-2xl hover:-translate-y-4 hover:scale-[1.02] transition-all duration-500 overflow-hidden hover:border-navy-300 cursor-pointer hover-glosario">
+          <div class="p-10 hover:bg-gradient-to-br hover:from-navy-50 hover:to-blue-50 h-full">
+            <div class="flex items-start space-x-6 mb-6">
+              <div class="w-20 h-20 bg-gradient-to-br from-navy-500 to-blue-600 rounded-2xl flex items-center justify-center text-white font-black text-2xl shadow-2xl flex-shrink-0 group-hover:scale-110 transition-transform">
+                <%= term.termino.charAt(0).toUpperCase() %>
+              </div>
+              <div class="flex-1 min-w-0">
+                <h3 class="text-3xl font-black text-gray-900 mb-3 line-clamp-2 group-hover:text-navy-600 transition-colors"><%= term.termino %></h3>
+                <div class="flex items-center text-emerald-600 font-bold text-lg mb-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                  Definición oficial
+                </div>
+              </div>
+            </div>
+            <p class="text-lg text-gray-700 leading-relaxed line-clamp-3 group-hover:line-clamp-none"><%= term.definicion %></p>
+            <div class="mt-8 pt-6 border-t border-gray-200 flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity">
+              <span class="text-sm text-gray-500 font-medium uppercase tracking-wide">Término clave</span>
+              <div class="flex items-center space-x-2">
+                <span class="w-3 h-3 bg-emerald-500 rounded-full shadow-lg"></span>
+                <span class="text-xs font-bold text-gray-600">Aprender más</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+      
+    </div>
+
+    <!-- Empty Search -->
+    <div id="no-results" class="hidden col-span-full text-center py-32">
+      <div class="w-32 h-32 bg-gray-200/50 rounded-3xl flex items-center justify-center mx-auto mb-12 shadow-xl backdrop-blur-sm">
+        <svg class="w-16 h-16 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+      </div>
+      <h3 class="text-4xl font-black text-gray-900 mb-6">No se encontraron términos</h3>
+      <p class="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">Intenta con otra palabra clave. Tenemos definiciones de todos los términos técnicos del mundo financiero.</p>
+      <button onclick="clearSearch()" class="px-12 py-5 bg-navy-600 hover:bg-navy-700 text-white font-black rounded-2xl shadow-2xl hover:shadow-3xl hover:-translate-y-1 transition-all text-xl">
+        Limpiar Búsqueda
+      </button>
+    </div>
+    
+  </main>
+
+  <%- include('partials/footer_professional') %>
+
+  <script>
+    // Glosario search & animations
+    const searchInput = document.getElementById('search-glosario');
+    const grid = document.getElementById('glosario-grid');
+    const items = grid.querySelectorAll('.hover-glosario');
+    const noResults = document.getElementById('no-results');
+    
+    searchInput.addEventListener('input', (e) => {
+      const term = e.target.value.toLowerCase();
+      let visibleCount = 0;
+      
+      items.forEach(item => {
+        const title = item.querySelector('h3').textContent.toLowerCase();
+        const content = item.querySelector('p').textContent.toLowerCase();
+        const isVisible = title.includes(term) || content.includes(term);
+        
+        item.style.display = isVisible ? 'block' : 'none';
+        if (isVisible) visibleCount++;
+      });
+      
+      noResults.classList.toggle('hidden', visibleCount > 0);
+      grid.classList.toggle('hidden', visibleCount === 0);
+    });
+    
+    function clearSearch() {
+      searchInput.value = '';
+      items.forEach(item => item.style.display = 'block');
+      noResults.classList.add('hidden');
+      grid.classList.remove('hidden');
+    }
+    
+    // Intersection Observer for fade-ins
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+        }
+      });
+    });
+    
+    items.forEach(item => observer.observe(item));
+  </script>
+</body>
+</html>
+

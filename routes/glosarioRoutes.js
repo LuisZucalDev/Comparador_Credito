@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const { obtenerGlosario } = require('../controllers/glosarioController');
+const { obtenerGlosarioJSON, renderGlosario } = require('../controllers/glosarioController');
 
-router.get('/', obtenerGlosario);
+router.get('/json', obtenerGlosarioJSON);
+router.get('/', renderGlosario);
 
 module.exports = router;

@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const { obtenerCreditos } = require('../controllers/creditoController');
+const { obtenerCreditosJSON, renderComparador } = require('../controllers/creditoController');
 
-router.get('/', obtenerCreditos);
+router.get('/json', obtenerCreditosJSON);
+router.get('/', renderComparador);
 
 module.exports = router;

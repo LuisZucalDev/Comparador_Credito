@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comparador de Créditos - Profesional</title>
+<link rel="stylesheet" href="/css/tailwind.css">
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+<script>
+ tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        navy: {
+          50: '#eff6ff',
+          500: '#3b82f6', 
+          600: '#2563eb',
+          700: '#1d4ed8'
+        }
+      }
+    }
+  }
+ }
+</script>
+
+</head>
+<body class="bg-gray-50 min-h-screen">
+<%- include('partials/navbar_professional') %>
+  
+<%- include('partials/hero_professional') %>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Filtros Sidebar -->
+    <div id="filtros" class="lg:grid lg:grid-cols-4 lg:gap-8 mb-12">
+      <div class="lg:col-span-1 bg-white rounded-xl shadow-sm border border-gray-200 p-8 sticky top-24">
+        <h2 class="text-2xl font-bold text-gray-900 mb-8">Filtros de Búsqueda</h2>
+        <form action="/comparador" method="GET" class="space-y-6">
+          <!-- Plazo -->
+          <div>
+            <label for="plazo-select" class="block text-sm font-semibold text-gray-700 mb-3">Plazo (meses)</label>
+            <select id="plazo-select" name="plazo" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all">
+              <option value="">Todos los plazos</option>
+              <option value="12" <%= plazo == '12' ? 'selected' : '' %>>12 meses</option>
+              <option value="24" <%= plazo == '24' ? 'selected' : '' %>>24 meses</option>
+              <option value="36" <%= plazo == '36' ? 'selected' : '' %>>36 meses</option>
+              <option value="48" <%= plazo == '48' ? 'selected' : '' %>>48 meses</option>
+            </select>
+          </div>
+          
+          <!-- Monto Máximo -->
+          <div>
+            <label for="monto" class="block text-sm font-semibold text-gray-700 mb-3">Monto Máximo</label>
+            <input id="monto" type="number" name="monto" value="<%= monto || '' %>" placeholder="Ej: 1000000" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" min="0">
+            <p class="text-xs text-gray-500 mt-1">$ CLP</p>
+          </div>
+          
+          <div class="flex gap-3 pt-2">
+            <button type="submit" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-all shadow-md hover:shadow-lg">
+              Aplicar Filtros
+            </button>
+            <button type="submit" name="limpiar" value="1" class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-3 px-6 rounded-lg transition-all">
+              Limpiar
+            </button>
+          </div>
+          
+          <% if (total > 0) { %>
+            <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+              <p class="font-bold text-green-800 text-sm mb-1">Resultados:</p>
+              <p class="text-green-700 text-lg font-bold"><%= total %> créditos encontrados</p>
+            </div>
+          <% } %>
+        </form>
+      </div>
+      
+      <!-- Tabla Resultados -->
+      <div class="lg:col-span-3">
+        <% if (creditos.length === 0) { %>
+          <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-16 text-center">
+            <svg class="w-20 h-20 text-gray-400 mx-auto mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">Sin resultados</h3>
+            <p class="text-gray-600 mb-8 max-w-md mx-auto">No se encontraron créditos con los filtros aplicados. Prueba ajustar los parámetros.</p>
+            <a href="/comparador" class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-all">
+              Ver todos los créditos
+            </a>
+          </div>
+        <% } else { %>
+          <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="px-6 py-4 border-b border-gray-100 bg-gray-50">
+              <h3 class="text-xl font-bold text-gray-900">Resultados de Comparación (<%= total %>)</h3>
+              <p class="text-sm text-gray-600 mt-1">Ordenados por mejor CAE</p>
+            </div>
+            
+            <!-- Tabla Responsiva -->
+            <div class="overflow-x-auto">
+              <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                  <tr>
+                    <th class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">Banco</th>
+                    <th class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">CAE</th>
+                    <th class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">Tasa</th>
+                    <th class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">Plazo</th>
+                    <th class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">Monto</th>
+                    <th class="px-6 py-4 text-right text-xs font-bold text-gray-700 uppercase tracking-wider">Acción</th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                  <% creditos.forEach((credito, index) => { %>
+                    <tr class="hover:bg-gray-50 transition-colors">
+                      <td class="px-6 py-5">
+                        <div class="flex items-center space-x-3">
+                          <% 
+                            const banco = credito.banco.toLowerCase();
+                            let icon = '🏦'; 
+                            if (banco.includes('estado')) icon = '🏛️';
+                            else if (banco.includes('chile')) icon = '🏦';
+                            else if (banco.includes('santander')) icon = '🏢';
+                            else if (banco.includes('bci')) icon = '🏦';
+                            else if (banco.includes('scotiabank')) icon = '🏦';
+                            else if (banco.includes('itau')) icon = '🏦';
+                          %>
+                          <span class="text-2xl"><%= icon %></span>
+                          <span class="font-semibold text-gray-900"><%= credito.banco %></span>
+                        </div>
+                      </td>
+                      <td class="px-6 py-5">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-bold 
+                          <% if (parseFloat(credito.cae) < 12.5) { %>bg-green-100 text-green-800<% } else if (parseFloat(credito.cae) < 13.5) { %>bg-yellow-100 text-yellow-800<% } else { %>bg-red-100 text-red-800<% } %>">
+                          <%= credito.cae %>
+                        </span>
+                      </td>
+                      <td class="px-6 py-5 text-sm font-medium text-gray-900"><%= credito.tasa %></td>
+                      <td class="px-6 py-5 text-sm text-gray-700"><%= credito.plazo %> meses</td>
+                      <td class="px-6 py-5 text-sm text-gray-700"><%= credito.monto %></td>
+                      <td class="px-6 py-5 text-right">
+                        <a href="<%= credito.contacto %>" target="_blank" rel="noopener" 
+                          class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold rounded-lg transition-all shadow-sm hover:shadow-md">
+                          Contactar
+                          <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                          </svg>
+                        </a>
+                      </td>
+                    </tr>
+                  <% }) %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </main>
+
+<%- include('partials/footer_professional') %>
+
+</body>
+</html>
+

@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const { obtenerFaq} = require('../controllers/faqController');
+const { obtenerFaqJSON, renderFaq } = require('../controllers/faqController');
 
-router.get('/', obtenerFaq);
+router.get('/json', obtenerFaqJSON);
+router.get('/', renderFaq);
 
 module.exports = router;

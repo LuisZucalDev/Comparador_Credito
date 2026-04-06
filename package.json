@@ -4,7 +4,10 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "seed": "node seed.js",
+    "start": "node server.js",
+    "build-css": "tailwindcss -i ./views/input.css -o ./public/css/tailwind.css --minify",
+    "watch-css": "tailwindcss -i ./views/input.css -o ./public/css/tailwind.css --watch"
   },
   "keywords": [],
   "author": "",
@@ -12,7 +15,13 @@
   "description": "",
   "dependencies": {
     "dotenv": "^17.2.1",
+    "ejs": "^5.0.1",
     "express": "^5.1.0",
     "mongoose": "^8.16.5"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.27",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^4.2.2"
   }
 }

@@ -1,12 +1,37 @@
 const mongoose = require('mongoose');
 
 const creditoSchema = new mongoose.Schema({
-  banco: String,
-  cae: String,
-  tasa: String,
-  plazo: String,
-  monto: String,
-  contacto: String
+  banco: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  cae: {
+    type: String,
+    required: true,
+    match: /^\d+(\.\d+)?%$/
+  },
+  tasa: {
+    type: String,
+    required: true,
+    match: /^\d+(\.\d+)?%$/
+  },
+  plazo: {
+    type: String,
+    required: true,
+    match: /^\d+$/
+  },
+  monto: {
+    type: String,
+    required: true
+  },
+  contacto: {
+    type: String,
+    required: true,
+    trim: true
+  }
+}, {
+  timestamps: true
 });
 
 module.exports = mongoose.model('Credito', creditoSchema);
